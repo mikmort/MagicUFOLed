@@ -1,8 +1,14 @@
-# What is this?
+# MagicUFOLed API
 
-This is for controlling Magic UFO Led WIFI strip contollers.
+This is a c# for controlling Magic UFO Led WIFI strip contollers.  For example:
+
+http://www.amazon.com/LEDENET%C2%AE-Controller-Android-Smartphone-Control/dp/B00MDKOSN0/ref=sr_1_1?ie=UTF8&qid=1462662194&sr=8-1&keywords=magic+ufo+led
+
+## Code Status
 
 This code is still very much work in progress.  Note that there is basically no error checking!
+
+## Usage
 
 Currently this code compiles into a command line utility.  Here is the usage:
 
