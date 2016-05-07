@@ -15,6 +15,8 @@ namespace MagicUFOController
     {
 
         public int port = 5577;
+
+        // Default IP if none specified
         public string hubIP = "192.168.1.143";
         public System.Net.Sockets.TcpClient clientSocket;
         public StringCollection ipAddresses;            

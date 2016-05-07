@@ -12,6 +12,5 @@ namespace MagicUFOController
         public int blue;
         public int green;
         public int white;
-
     }
 }
