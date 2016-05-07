@@ -39,14 +39,27 @@ namespace MagicUFOController
                     api.GetStatus(commands[2]);
                     break;
                 case "SETRANDOMCOLOR":
-                    api.SetRandomColor();
+                    
+                    if (commands.Length>2)
+                        api.SetRandomColor(Convert.ToDouble(commands[2]));
+                    else
+                        api.SetRandomColor();
                     break;
                 case "CUSTOMFADES":
+                    ProcessFade(commands[2],commands[3],commands[4]);
+                    break;
+
+            }
+           
+        }
+            
+            private void ProcessFade(string colorString, string flashString, string speed)
+            {
                     MagicUFOController.LedApi.FlashMode flash = new LedApi.FlashMode();
                     
-                    LedColor[] colors = BuildColors(commands[2]);
+                    LedColor[] colors = BuildColors(colorString);
 
-                    switch (commands[3]) {
+                    switch (flashString) {
                         case "GRADUAL":
                             flash = LedApi.FlashMode.Gradual;
                             break;
@@ -58,12 +71,8 @@ namespace MagicUFOController
                             break;
                     }
 
-                    api.CustomFades(colors,flash, Convert.ToInt32(commands[4]));
-                    break;
-
+                    api.CustomFades(colors, flash, Convert.ToInt32(speed));
             }
-           
-        }
 
 
             // Color sets (RGBW) are broken out by ;

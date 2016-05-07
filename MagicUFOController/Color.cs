@@ -31,19 +31,13 @@ namespace MagicUFOController
             warmWhite = iwarmWhite;
         }
 
-        public void SetRandomColor()
-        {
-            SetRandomColor(.5);
-        }
-
         public void SetRandomColor(double brightness)
-        {
+        { 
             Random rnd = new Random();
             double hue = rnd.NextDouble()*360;
 
             // Bias for more saturation
-            double saturation = GetRandomNumber(100, 1, .3)/100;
-            Console.WriteLine(saturation.ToString());
+            double saturation = GetRandomNumber(rnd.NextDouble(),100, 1, .3)/100;
             Color newColor = ColorFromHSV(hue, saturation, brightness);
             red = newColor.R;
             green = newColor.G;
@@ -52,11 +46,13 @@ namespace MagicUFOController
 
         }
 
-        private double GetRandomNumber(double max, double min, double probabilityPower = 2)
+        public void SetRandomColor(int foo, int bar)
         {
-            Random randomizer = new Random();
-            double randomDouble = randomizer.NextDouble();
 
+        }
+
+        private double GetRandomNumber(double randomDouble, double max, double min, double probabilityPower = 2)
+        {
             double result = Math.Floor(min + (max + 1 - min) * (Math.Pow(randomDouble, probabilityPower)));
             return (double)result;
         }

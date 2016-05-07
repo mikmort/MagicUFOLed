@@ -120,10 +120,17 @@ namespace MagicUFOController
             return string.Format("{0:x1}{1:x1}", (number & 0xff00) >> 8, number & 0xff);
         }
 
+        public void SetRandomColor(double brightness)
+        {
+            LedColor color = new LedColor();
+            color.SetRandomColor(brightness);
+            SetColor(color);
+        }
+
         public void SetRandomColor()
         {
             LedColor color = new LedColor();
-            color.SetRandomColor();
+            color.SetRandomColor((double).5);
             SetColor(color);
         }
 
