@@ -14,7 +14,9 @@ TURNON
 TURNOFF
 SETCOLOR RED GREEN BLUE WHITE
 SETBRIGHTNESS VALUE 
+SETRANDOMCOLOR BRIGHTNESS
 CUSTOMFADES COLORSET FADEMODE SPEED
+
 
 For example:
 
@@ -37,3 +39,7 @@ COLORSET is Red,Green,Blue,White sets delimted by semi-colons.The API supports u
 SPEED is a number between 1 an 30 (1 slowest -- 30 fastest)
 
 The Core API is in a class called LedApi.
+
+<BRIGHTNESS> is optional for SETRANDOMCOLOR.  It will default to .5
+
+Note that SETRANDOMCOLOR biases towards more saturated colors in the random number algorithm.  
