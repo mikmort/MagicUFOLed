@@ -38,6 +38,9 @@ namespace MagicUFOController
                 case "GETSTATUS":
                     api.GetStatus(commands[2]);
                     break;
+                case "SETRANDOMCOLOR":
+                    api.SetRandomColor();
+                    break;
                 case "CUSTOMFADES":
                     MagicUFOController.LedApi.FlashMode flash = new LedApi.FlashMode();
                     
@@ -57,7 +60,9 @@ namespace MagicUFOController
 
                     api.CustomFades(colors,flash, Convert.ToInt32(commands[4]));
                     break;
+
             }
+           
         }
 
 

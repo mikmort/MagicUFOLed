@@ -90,11 +90,24 @@ namespace MagicUFOController
             ledControl.SendGroupCommand(BuildColorString(red, green, blue, warmWhite));
         }
 
+        public void SetColor(LedColor color)
+        {
+
+            ledControl.SendGroupCommand(BuildColorString(color.red, color.green, color.blue, color.warmWhite));
+        }
+
+        public void SetColor(string ipAddress, LedColor color)
+        {
+
+            ledControl.SendCommand(BuildColorString(color.red, color.green, color.blue, color.warmWhite),ipAddress);
+        }
+
         public void SetColor(string ipAddress, int red, int green, int blue, int warmWhite)
         {
 
             ledControl.SendCommand(BuildColorString(red, green, blue, warmWhite), ipAddress);
         }
+
 
         public void CustomFades(LedColor[] colors, FlashMode mode, int speed)
         {
@@ -107,6 +120,12 @@ namespace MagicUFOController
             return string.Format("{0:x1}{1:x1}", (number & 0xff00) >> 8, number & 0xff);
         }
 
+        public void SetRandomColor()
+        {
+            LedColor color = new LedColor();
+            color.SetRandomColor();
+            SetColor(color);
+        }
 
         public void SetBrightness(int brightness)
         {
