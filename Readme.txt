@@ -26,4 +26,14 @@ MagicUFOController.exe 192.168.1.143 SETCOLOR 200 60 20 0
 
 MagicUFOController.exe 192.168.1.143 CUSTOMFADES 255,0,0,0;0,255,255,0 JUMPING 20
 
+FADEMODE can be:
+
+JUMPING
+GRADUAL
+STROBE
+
+COLORSET is Red,Green,Blue,White sets delimted by semi-colons.The API supports up to 16.
+
+SPEED is a number between 1 an 30 (1 slowest -- 30 fastest)
+
 The Core API is in a class called LedApi.
