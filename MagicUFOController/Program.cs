@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Security.AccessControl;
+using MagicUFOController;
 
 namespace MagicLedController
 {
@@ -19,6 +20,9 @@ namespace MagicLedController
         {
             MagicUFOController.LedCommandProcessor ledProccesor = new MagicUFOController.LedCommandProcessor(args[0]);
             ledProccesor.ParseLine(args);
+            
+
+            
             //ledProccesor.SetBrightness(70);
             //ledProccesor.GetStatus(1);
             //ledProccesor.TurnOn(1);

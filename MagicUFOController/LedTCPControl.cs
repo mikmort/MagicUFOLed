@@ -76,13 +76,10 @@ namespace MagicUFOController
             serverStream.Flush();
             clientSocket.Close();
             return status;
-
         }
 
         public  byte[] StringToByteArrayWithChecksum(String hex)
         {
-
-
             byte checksum = 0;
 
             int NumberChars = hex.Length;

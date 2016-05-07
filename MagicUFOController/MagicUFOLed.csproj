@@ -56,6 +56,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Color.cs" />
+    <Compile Include="LedApi.cs" />
     <Compile Include="LedCommandProcessor.cs" />
     <Compile Include="LEDStatus.cs" />
     <Compile Include="LedTCPControl.cs" />
