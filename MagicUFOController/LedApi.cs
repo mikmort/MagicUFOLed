@@ -56,6 +56,7 @@ namespace MagicUFOController
             string commandString = "";
             // Command is 0x51 for custom fade
             int command = 0x51;
+
             // Up to 16 colors can be supported;
             int totalColors = 16;
             int speedStart = 30;
@@ -66,6 +67,7 @@ namespace MagicUFOController
                 commandString += colors[i].red.ToString("X2") + colors[i].green.ToString("X2") + colors[i].blue.ToString("X2") + colors[i].warmWhite.ToString("X2");
             }
 
+            // API requires all 16 colors sent.  Send 01 02 03 00 for the empty colors
             for (int j = 0; j < totalColors - colors.Length; ++j)
             {
                 commandString += "01020300";
