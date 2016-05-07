@@ -20,7 +20,7 @@ For example:
 
 MagicUFOController.exe 192.168.1.143 TURNOFF
 
-MagicUFOController.exe 192.168.1.143 TURNON
+MagicUFOController.exe 192.168.1.143;192.168.1.144;192.168.1.145 TURNON
 
 MagicUFOController.exe 192.168.1.143 SETCOLOR 200 60 20 0
 
