@@ -15,6 +15,8 @@ namespace MagicUFOController
         public int green;
         public int warmWhite;
 
+        public double saturationBias=.3;
+
         public LedColor()
         {
             red = 0;
@@ -23,7 +25,7 @@ namespace MagicUFOController
             warmWhite = 0;
         }
 
-        public LedColor(int ired, int iblue, int igreen, int iwarmWhite)
+        public LedColor(int ired,  int igreen, int iblue, int iwarmWhite)
         {
             red = ired;
             blue = iblue;
@@ -37,7 +39,7 @@ namespace MagicUFOController
             double hue = rnd.NextDouble()*360;
 
             // Bias for more saturation
-            double saturation = GetRandomNumber(rnd.NextDouble(),100, 1, .3)/100;
+            double saturation = GetRandomNumber(rnd.NextDouble(),100, 1, saturationBias)/100;
             Color newColor = ColorFromHSV(hue, saturation, brightness);
             red = newColor.R;
             green = newColor.G;
@@ -45,12 +47,10 @@ namespace MagicUFOController
             warmWhite = 0;
 
         }
-
-        public void SetRandomColor(int foo, int bar)
-        {
-
-        }
-
+        
+        // 'Biased' Random number generator
+        //  If probablyPower >0 and <1 this will be biased towards higher numbers -- closer to zero is a higher bias
+        //  If probablyPower >1 this will bias to lower numbers.
         private double GetRandomNumber(double randomDouble, double max, double min, double probabilityPower = 2)
         {
             double result = Math.Floor(min + (max + 1 - min) * (Math.Pow(randomDouble, probabilityPower)));

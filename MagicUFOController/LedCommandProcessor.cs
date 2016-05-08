@@ -39,7 +39,6 @@ namespace MagicUFOController
                     api.GetStatus(commands[2]);
                     break;
                 case "SETRANDOMCOLOR":
-                    
                     if (commands.Length>2)
                         api.SetRandomColor(Convert.ToDouble(commands[2]));
                     else

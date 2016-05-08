@@ -36,8 +36,6 @@ namespace MagicUFOController
         public void TurnOff()
         {
             string commandString = "71240F";
-
-
             ledControl.SendGroupCommand(commandString);
         }
 
@@ -108,12 +106,10 @@ namespace MagicUFOController
             ledControl.SendCommand(BuildColorString(red, green, blue, warmWhite), ipAddress);
         }
 
-
         public void CustomFades(LedColor[] colors, FlashMode mode, int speed)
         {
             ledControl.SendGroupCommand(BuildCustomFadeCommand(colors, mode, speed));
         }
-
 
         static string convertDecToTwoDigitHex(int number)
         {
