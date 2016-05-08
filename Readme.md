@@ -20,13 +20,12 @@ Here are the <COMMANDS>
 
 TURNON
 TURNOFF
-SETCOLOR RED GREEN BLUE WHITE
-SETBRIGHTNESS VALUE 
-SETRANDOMCOLOR BRIGHTNESS
-CUSTOMFADES COLORSET FADEMODE SPEED
+SETCOLOR 
+SETBRIGHTNESS  
+SETRANDOMCOLOR 
+CUSTOMFADES
 
-
-For example:
+####Examples:
 
 MagicUFOController.exe 192.168.1.143 TURNOFF
 
@@ -36,19 +35,26 @@ MagicUFOController.exe 192.168.1.143 SETCOLOR 200 60 20 0
 
 MagicUFOController.exe 192.168.1.143 CUSTOMFADES 255,0,0,0;0,255,255,0 JUMPING 20
 
-####Syntax for SETCOLOR is:
+#####TURNON and TURNOFF
+No parameters
+
+#####Syntax for SETCOLOR is:
 
 SETCOLOR RED GREEN BLUE WHITE
 
 where RED, GREEN, BLUE, and WHITE are numbers between 0 and 255
 
-####Syntax for SETBRIGHTNESS is:
+#####Syntax for SETBRIGHTNESS is:
 
 SETBRIGHTNESS BRIGHTNESS
 
 where BRIGHTNESS is between 0 and 100
 
-####FADEMODE can be:
+#####Sytax for CUSTOMFADES
+
+CUSTOMFADES COLORSET FADEMODE SPEED
+
+FADEMODE can be:
 
 JUMPING
 GRADUAL
@@ -60,7 +66,7 @@ SPEED is a number between 1 an 30 (1 slowest -- 30 fastest)
 
 The Core API is in a class called LedApi.
 
-####Syntax for SETRANDOMCOLOR
+#####Syntax for SETRANDOMCOLOR
 
 SETRANDOMCOLOR <BRIGHTNESS>
 
