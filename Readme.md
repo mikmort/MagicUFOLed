@@ -6,7 +6,7 @@ http://www.amazon.com/LEDENET%C2%AE-Controller-Android-Smartphone-Control/dp/B00
 
 ## Code Status
 
-This code is still very much work in progress.  Note that there is basically no error checking!
+This code is still very much work in progress.  Note that there is minimal error checking!
 
 ## Usage
 
