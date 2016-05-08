@@ -119,7 +119,7 @@ namespace MagicUFOController
         public void SetRandomColor(double brightness)
         {
             LedColor color = new LedColor();
-            color.SetRandomColor(brightness);
+            color.SetRandomColor(brightness/100.0);
             SetColor(color);
         }
 

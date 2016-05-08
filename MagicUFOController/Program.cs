@@ -16,8 +16,14 @@ namespace MagicLedController
     {
         static void Main(string[] args)
         {
-            MagicUFOController.LedCommandProcessor ledProccesor = new MagicUFOController.LedCommandProcessor(args[0]);
-            ledProccesor.ParseLine(args);
+            if (args.Length==0)
+                LedCommandProcessor.InvalidCommand("No Arguments");
+            else
+            {
+                MagicUFOController.LedCommandProcessor ledProccesor = new MagicUFOController.LedCommandProcessor(args[0]);
+                ledProccesor.ParseLine(args);
+            }
+
         } 
 
     }

@@ -19,14 +19,29 @@ namespace MagicUFOController
 
         public void ParseLine(string[] commands)
         {
-            
+            if (commands.Length == 1)
+            {
+                InvalidCommand("No Command");
+                return;
+            }
+                
             switch (commands[1])
             {
 
                 case "SETCOLOR":
+                    if (commands.Length!=6)
+                    {
+                        InvalidCommand("Invalid Arguments. Syntax is SETCOLOR RED GREEN BLUE WHITE");
+                        return;
+                    }
                     api.SetColor(Convert.ToInt32(commands[2]), Convert.ToInt32(commands[3]), Convert.ToInt32(commands[4]), Convert.ToInt32(commands[5]));
                     break;
                 case "SETBRIGHTNESS":
+                    if (commands.Length!=3)
+                    {
+                        InvalidCommand("Invalid Arguments. Syntax is SETBRIGHTNESS LEVEL where level is between 0 and 1");
+                        return;
+                    }
                     api.SetBrightness(Convert.ToInt32(commands[2]));
                     break;
                 case "TURNON":
@@ -45,9 +60,16 @@ namespace MagicUFOController
                         api.SetRandomColor();
                     break;
                 case "CUSTOMFADES":
+                    if (commands.Length != 5)
+                    {
+                        InvalidCommand("Invalid Arguments. Syntax is CUSTOMFADES COLORSET FADEMODE SPEED");
+                        return;
+                    }
                     ProcessFade(commands[2],commands[3],commands[4]);
                     break;
-
+                default:
+                    InvalidCommand("Invalid Agrument");
+                    break;
             }
            
         }
@@ -91,11 +113,10 @@ namespace MagicUFOController
             }
 
 
-
+            internal static void InvalidCommand(string message)
+            {
+                Console.WriteLine(message + ". For syntax help check out https://github.com/mikmort/MagicUFOLed/edit/master/Readme.md");
+            }
   
-
-        
-  
-
     }
 }

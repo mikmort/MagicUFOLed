@@ -23,13 +23,11 @@ namespace MagicUFOController
 
         public LedTCPControl()
         {
-             clientSocket = new System.Net.Sockets.TcpClient();
              ipAddresses.Add(hubIP);
         }
 
         public LedTCPControl(string argIPs)
         {
-            clientSocket = new System.Net.Sockets.TcpClient();
             ipAddresses = new StringCollection();
             AddIPs(argIPs);
         }
@@ -42,10 +40,19 @@ namespace MagicUFOController
 
         public void SendCommand(string command, string ipAddress)
         {
-            clientSocket.Connect(ipAddress, port);
-            byte[] buf = StringToByteArrayWithChecksum(command);
-            clientSocket.GetStream().Write(buf, 0, buf.Length);
-            clientSocket.Close();
+
+            try
+            {
+                clientSocket = new System.Net.Sockets.TcpClient();
+                clientSocket.Connect(ipAddress, port);
+                byte[] buf = StringToByteArrayWithChecksum(command);
+                clientSocket.GetStream().Write(buf, 0, buf.Length);
+            }
+            catch
+            {
+                Console.WriteLine("Error connecting to device.");
+            }
+                clientSocket.Close();
         }
 
         public void AddIPs(string ipList)
@@ -59,12 +66,17 @@ namespace MagicUFOController
         public MagicUFOController.LEDStatus GetStatus(string command, String ipAddress)
         {
             LEDStatus status = new LEDStatus();
+            NetworkStream serverStream;
+            byte[] outStream;
             
             SendCommand(command, ipAddress);
+
+            clientSocket = new System.Net.Sockets.TcpClient();
             clientSocket.Connect(ipAddress, port);
-            NetworkStream serverStream = clientSocket.GetStream();
-            byte[] outStream = new byte[50];
+            serverStream = clientSocket.GetStream();
+            outStream = new byte[50];
             serverStream.Write(outStream, 0, outStream.Length);
+        
             int bytesRead = 0;
             // 14 bytes is the size of the status stream
             while (bytesRead < 14)
