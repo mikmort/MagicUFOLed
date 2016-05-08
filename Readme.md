@@ -36,7 +36,19 @@ MagicUFOController.exe 192.168.1.143 SETCOLOR 200 60 20 0
 
 MagicUFOController.exe 192.168.1.143 CUSTOMFADES 255,0,0,0;0,255,255,0 JUMPING 20
 
-FADEMODE can be:
+####Syntax for SETCOLOR is:
+
+SETCOLOR RED GREEN BLUE WHITE
+
+where RED, GREEN, BLUE, and WHITE are numbers between 0 and 255
+
+####Syntax for SETBRIGHTNESS is:
+
+SETBRIGHTNESS BRIGHTNESS
+
+where BRIGHTNESS is between 0 and 100
+
+####FADEMODE can be:
 
 JUMPING
 GRADUAL
@@ -48,6 +60,10 @@ SPEED is a number between 1 an 30 (1 slowest -- 30 fastest)
 
 The Core API is in a class called LedApi.
 
-<BRIGHTNESS> is optional for SETRANDOMCOLOR.  It will default to .5
+####Syntax for SETRANDOMCOLOR
+
+SETRANDOMCOLOR <BRIGHTNESS>
+
+<BRIGHTNESS> is optional for SETRANDOMCOLOR.  It can be a number between 0 and 100
 
 Note that SETRANDOMCOLOR biases towards more saturated colors in the random number algorithm.  
